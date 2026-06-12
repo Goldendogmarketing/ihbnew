@@ -116,17 +116,23 @@ async function mobileFlow() {
   await page.waitForTimeout(1500)
   await page.screenshot({ path: 'shots/11-mobile-swiped.png' })
 
-  // tap a card to open detail
-  await page.touchscreen.tap(195, 400)
-  await page.waitForTimeout(1700)
+  // tap a card to open detail (try a few spots — a point can land in a gap)
+  let detailOpen = false
+  for (const [x, y] of [[195, 400], [195, 320], [120, 430], [270, 360], [195, 520]]) {
+    await page.touchscreen.tap(x, y)
+    await page.waitForTimeout(1500)
+    detailOpen = await page.evaluate(() => !document.getElementById('detail').hidden)
+    if (detailOpen) break
+  }
   await page.screenshot({ path: 'shots/12-mobile-detail.png' })
-  const detailOpen = await page.evaluate(() => !document.getElementById('detail').hidden)
   console.log('mobile detail open:', detailOpen)
 
   // back to gallery
-  await page.tap('#back')
-  await page.waitForTimeout(1600)
-  await page.screenshot({ path: 'shots/13-mobile-back.png' })
+  if (detailOpen) {
+    await page.tap('#back')
+    await page.waitForTimeout(1600)
+    await page.screenshot({ path: 'shots/13-mobile-back.png' })
+  }
   await page.close()
 }
 
