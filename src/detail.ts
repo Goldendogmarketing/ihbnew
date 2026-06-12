@@ -26,6 +26,7 @@ export class DetailView {
   private tagsEl = this.el.querySelector('.d-tags') as HTMLElement
   private blurbEl = this.el.querySelector('.d-blurb') as HTMLElement
   private linkEl = this.el.querySelector('.d-link') as HTMLAnchorElement
+  private actionsEl = this.el.querySelector('.d-actions') as HTMLElement
   private heroEl = this.el.querySelector('.detail-hero') as HTMLElement
   private imgEl = this.el.querySelector('.d-img') as HTMLImageElement
   private backBtn = document.getElementById('back') as HTMLButtonElement
@@ -83,7 +84,7 @@ export class DetailView {
 
     gsap.set(this.bg, { opacity: 0 })
     gsap.set(this.backBtn, { opacity: 0, y: -10 })
-    const textTargets = [this.clientEl.parentElement, this.tagsEl, this.blurbEl, this.linkEl]
+    const textTargets = [this.clientEl.parentElement, this.tagsEl, this.blurbEl, this.actionsEl]
     gsap.set(textTargets, { opacity: 0, y: 24 })
     const words = this.titleEl.querySelectorAll('.w > span')
     gsap.set(words, { yPercent: 118 })
@@ -144,7 +145,7 @@ export class DetailView {
     this.heroEl.classList.remove('ready')
 
     const words = this.titleEl.querySelectorAll('.w > span')
-    const textTargets = [this.clientEl.parentElement, this.tagsEl, this.blurbEl, this.linkEl]
+    const textTargets = [this.clientEl.parentElement, this.tagsEl, this.blurbEl, this.actionsEl]
 
     const tl = gsap.timeline({
       onComplete: () => {

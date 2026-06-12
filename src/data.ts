@@ -81,6 +81,28 @@ export const PROJECTS: Project[] = [
       'The studio itself. iHelpBuild helps small businesses build smarter — websites, automation, and AI working together. This spatial gallery is one of its experiments.',
   },
   {
+    id: 'hermes',
+    title: 'Hermes Agent',
+    client: 'iHelpBuild',
+    year: '2026',
+    tags: ['AI', 'Agent', 'Automation'],
+    url: '#hermes',
+    image: 'sites/hermes.jpg',
+    blurb:
+      'An AI agent system built for small businesses — intake, scheduling, follow-up, and reporting running 24/7. Hermes handles the admin layer so the humans handle the work.',
+  },
+  {
+    id: 'growth',
+    title: 'Growth & Marketing',
+    client: 'iHelpBuild',
+    year: '2026',
+    tags: ['Marketing', 'Google Ads', 'Video'],
+    url: '#contact',
+    image: 'sites/growth.jpg',
+    blurb:
+      'Revenue strategy, a sharper marketing presence, Google Ads that convert, and social systems that post themselves — plus founder and customer video that builds trust on sight.',
+  },
+  {
     id: 'btw',
     title: 'BTW.LTD',
     client: 'BTW',

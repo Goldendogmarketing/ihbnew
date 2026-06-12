@@ -4,17 +4,15 @@ import '@fontsource/instrument-serif'
 import gsap from 'gsap'
 import { PROJECTS } from './data'
 import { SphereGallery } from './gallery'
-import { loadCardArts, type CardArt } from './textures'
+import { loadCardArts } from './textures'
 import { DetailView } from './detail'
 import { Loader } from './loader'
+import { initSalesPage } from './sales'
 
 const app = document.getElementById('app') as HTMLElement
 const hint = document.getElementById('hint') as HTMLElement
 const hintText = document.getElementById('hint-text') as HTMLElement
 const gyroBtn = document.getElementById('gyro') as HTMLButtonElement
-const tooltip = document.getElementById('tooltip') as HTMLElement
-const ttTitle = tooltip.querySelector('.tt-title') as HTMLElement
-const ttTags = tooltip.querySelector('.tt-tags') as HTMLElement
 const statusCount = document.getElementById('status-count') as HTMLElement
 
 const isCoarse = window.matchMedia('(pointer: coarse)').matches
@@ -29,31 +27,9 @@ loader.start()
 const gallery = new SphereGallery(app)
 const detail = new DetailView()
 
-// ---- tooltip follows the cursor (desktop hover) -------------------------
-const ttToX = gsap.quickTo(tooltip, 'left', { duration: 0.4, ease: 'power3' })
-const ttToY = gsap.quickTo(tooltip, 'top', { duration: 0.4, ease: 'power3' })
-let ttSeeded = false
-gallery.onHover = (art: CardArt | null, x: number, y: number) => {
-  if (!art) {
-    tooltip.classList.remove('on')
-    return
-  }
-  ttTitle.textContent = art.project.title
-  ttTags.textContent = `${art.project.tags.join(' · ')} — ${art.project.year}`
-  tooltip.hidden = false
-  if (!ttSeeded) {
-    gsap.set(tooltip, { left: x, top: y })
-    ttSeeded = true
-  }
-  tooltip.classList.add('on')
-  ttToX(x)
-  ttToY(y)
-}
-
 // ---- card click -> focus + detail page ----------------------------------
 gallery.onCardClick = (hit) => {
   if (detail.isOpen) return
-  tooltip.classList.remove('on')
   const fromRect = gallery.screenRect(hit.mesh)
   gallery.focusCard(hit.mesh)
   detail.open(hit.art.project, fromRect, {
@@ -76,11 +52,33 @@ gallery.onCardClick = (hit) => {
   console.error('[boot]', err)
 })
 
+// ---- sales page (services, contact, hermes) -------------------------------
+const sales = initSalesPage({
+  closeDetail: () => {
+    if (!detail.isOpen) return false
+    detail.close()
+    return true
+  },
+})
+
+// route hash-style project links (Hermes / Growth cards) through the app
+const detailLink = document.querySelector('.d-link') as HTMLAnchorElement
+detailLink.addEventListener('click', (e) => {
+  const href = detailLink.getAttribute('href') ?? ''
+  if (!href.startsWith('#')) return
+  e.preventDefault()
+  detail.close()
+  if (href === '#hermes') setTimeout(() => sales.hermes.open(), 500)
+  else setTimeout(() => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }), 650)
+})
+
 // ---- enter the sphere -----------------------------------------------------
 loader.onEnter = () => {
   gallery.intro(() => {
     gsap.to(['#chrome-top', '#chrome-bottom'], { opacity: 1, duration: 1.1, ease: 'power2.out' })
   })
+  document.body.classList.add('scrollable')
+  gsap.to('#scroll-cue', { opacity: 1, y: 0, delay: 2.5, duration: 0.8, ease: 'power2.out' })
 }
 
 // hide the hint after the first real look-around

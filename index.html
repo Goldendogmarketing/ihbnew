@@ -18,7 +18,14 @@
         <span class="brand-mark">ihb</span>
         <span class="brand-name">IHELPBUILD</span>
       </a>
-      <a class="pill cta" href="https://www.ihelpbuild.com" target="_blank" rel="noreferrer">Let&rsquo;s Talk</a>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="#top" data-scroll="#top">Work</a>
+        <a href="#services" data-scroll="#services">Services</a>
+        <a href="#hermes" data-hermes>Hermes</a>
+        <a href="#learn" data-scroll="#learn">Learn</a>
+        <a href="#contact" data-scroll="#contact">Contact</a>
+      </nav>
+      <a class="pill cta" href="#contact" data-scroll="#contact">Book a Call</a>
     </header>
 
     <footer id="chrome-bottom" class="chrome chrome-bottom">
@@ -26,11 +33,6 @@
       <div id="hint" class="hint"><i class="hint-dot"></i><span id="hint-text">Click &amp; drag to look around</span></div>
       <button id="gyro" class="pill ghost" hidden>Enable motion</button>
     </footer>
-
-    <div id="tooltip" class="tooltip" hidden>
-      <b class="tt-title"></b>
-      <span class="tt-tags"></span>
-    </div>
 
     <section id="detail" class="detail" hidden aria-hidden="true">
       <div class="detail-bg"></div>
@@ -50,11 +52,247 @@
           </figure>
           <div class="detail-body">
             <p class="d-blurb"></p>
-            <a class="pill d-link" target="_blank" rel="noreferrer">Visit live site &nearr;</a>
+            <div class="d-actions">
+              <a class="pill d-link" target="_blank" rel="noreferrer">Visit live site &nearr;</a>
+              <a class="pill ghost d-cta" href="#contact" data-scroll="#contact">Want something like this? &rarr;</a>
+            </div>
           </div>
         </div>
       </div>
       <button id="back" class="pill ghost back" type="button">&larr; Back to gallery</button>
+    </section>
+
+    <button id="scroll-cue" class="scroll-cue" type="button" aria-label="Scroll to see what we build">
+      <span>What we build</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div id="hero-spacer" aria-hidden="true"></div>
+
+    <main id="sales" class="sales">
+      <!-- ============ SERVICES ============ -->
+      <section id="services" class="s-section s-services">
+        <div class="s-inner">
+          <div class="s-head animate-in">
+            <span class="s-eyebrow">What we build</span>
+            <h2 class="s-title">Three ways to win online.</h2>
+          </div>
+          <div class="svc-grid">
+            <article class="svc-card tilt animate-in" data-tilt>
+              <div class="tilt-inner">
+                <span class="svc-num">01 / Websites</span>
+                <h3 class="svc-title">Sites that stop the scroll</h3>
+                <p class="svc-body">Custom-built from a blank canvas. No templates, no shortcuts. Designed to convert, built to last, fast enough to rank.</p>
+                <div class="svc-tags"><span>Brand</span><span>Design</span><span>Development</span><span>Performance</span></div>
+                <button class="pill ghost svc-cta" type="button" data-scroll="#top">See the work &uarr;</button>
+              </div>
+              <i class="tilt-glare" aria-hidden="true"></i>
+            </article>
+            <article class="svc-card tilt animate-in" data-tilt>
+              <div class="tilt-inner">
+                <span class="svc-num">02 / Hermes</span>
+                <h3 class="svc-title">Your business, on autopilot</h3>
+                <p class="svc-body">Hermes is an AI agent built for small businesses. Intake, follow-up, scheduling, reporting &mdash; handled while you sleep.</p>
+                <div class="svc-tags"><span>AI</span><span>Agents</span><span>Automation</span><span>CRM</span></div>
+                <button class="pill ghost svc-cta" type="button" data-hermes>See Hermes &rarr;</button>
+              </div>
+              <i class="tilt-glare" aria-hidden="true"></i>
+            </article>
+            <article class="svc-card tilt animate-in" data-tilt>
+              <div class="tilt-inner">
+                <span class="svc-num">03 / Growth</span>
+                <h3 class="svc-title">Get found. Get chosen.</h3>
+                <p class="svc-body">Revenue strategy, a sharper marketing presence, Google Ads that convert, and social systems that post themselves &mdash; plus founder &amp; customer video that builds trust on sight.</p>
+                <div class="svc-tags"><span>Strategy</span><span>Google Ads</span><span>Social</span><span>Video</span><span>Brand</span></div>
+                <button class="pill svc-cta" type="button" data-scroll="#contact" data-service="Growth &amp; Marketing">Get a free audit</button>
+              </div>
+              <i class="tilt-glare" aria-hidden="true"></i>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ WORK BRIDGE ============ -->
+      <section id="work-bridge" class="s-section s-bridge">
+        <div class="s-inner">
+          <span class="s-eyebrow animate-in">Selected work</span>
+          <h2 class="s-title s-title-big animate-in">Seven projects. Three disciplines. One studio.</h2>
+          <p class="s-sub animate-in">Everything above is real, live, and built by us. Click any card in the gallery to go deeper.</p>
+          <button class="pill ghost animate-in" type="button" data-scroll="#top">Explore the gallery &uarr;</button>
+        </div>
+      </section>
+
+      <!-- ============ PROCESS ============ -->
+      <section id="process" class="s-section s-process">
+        <div class="s-inner">
+          <div class="s-head animate-in">
+            <span class="s-eyebrow">How it works</span>
+            <h2 class="s-title">No mystery. Just momentum.</h2>
+          </div>
+          <div class="proc-grid">
+            <div class="proc-step tilt animate-in" data-tilt>
+              <div class="tilt-inner">
+                <span class="proc-num">1</span>
+                <h3>Discovery</h3>
+                <p>30-min call. We learn your business, your bottleneck, your ambition.</p>
+              </div>
+            </div>
+            <div class="proc-step tilt animate-in" data-tilt>
+              <div class="tilt-inner">
+                <span class="proc-num">2</span>
+                <h3>Build</h3>
+                <p>We design, develop, and deploy. You see progress weekly, never wonder what&rsquo;s happening.</p>
+              </div>
+            </div>
+            <div class="proc-step tilt animate-in" data-tilt>
+              <div class="tilt-inner">
+                <span class="proc-num">3</span>
+                <h3>Ship + Grow</h3>
+                <p>Launch day is the start, not the finish. AI and growth layers added over time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ LEARN AI ============ -->
+      <section id="learn" class="s-section s-learn">
+        <div class="s-inner">
+          <div class="learn-panel tilt animate-in" data-tilt>
+            <div class="tilt-inner">
+              <span class="s-eyebrow">Learn AI</span>
+              <h2 class="s-title s-title-big">Go from talking to AI to actually using it.</h2>
+              <p class="s-sub">Most people use Claude and GPT like a search engine &mdash; and get search-engine results. We teach businesses and teams to actually put AI to work: real workflows, real prompts, real leverage that saves hours every week.</p>
+              <div class="learn-formats">
+                <span>Online Course</span><span>In-Person Classes</span><span>Seminars</span><span>Webinars</span>
+              </div>
+              <button class="pill learn-cta" type="button" data-scroll="#contact" data-service="Learn AI &mdash; Waitlist">Join the waitlist &rarr;</button>
+              <p class="s-faint learn-note">Launching soon &mdash; join for early access and founding-member pricing.</p>
+            </div>
+            <i class="tilt-glare" aria-hidden="true"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TRUST ============ -->
+      <section id="trust" class="s-section s-trust">
+        <div class="s-inner">
+          <div class="trust-grid">
+            <div class="trust-stats">
+              <div class="stat animate-in"><span class="stat-num" data-count="7" data-suffix="+">0</span><span class="stat-label">Live client sites</span></div>
+              <div class="stat animate-in"><span class="stat-num" data-count="3">0</span><span class="stat-label">Industries served</span></div>
+              <div class="stat animate-in"><span class="stat-num" data-text="&lt; 3 wks">&nbsp;</span><span class="stat-label">Average site delivery</span></div>
+              <div class="stat animate-in"><span class="stat-num" data-count="100" data-suffix="%">0</span><span class="stat-label">Custom &mdash; zero templates</span></div>
+            </div>
+            <div class="trust-quotes">
+              <blockquote class="quote animate-in" data-testimonial>
+                <p>&ldquo;Placeholder &mdash; client quote coming soon. We send weekly updates: you always know what&rsquo;s built, what&rsquo;s next, and why.&rdquo;</p>
+                <footer><b>Client Name</b><span>Company</span></footer>
+              </blockquote>
+              <blockquote class="quote animate-in" data-testimonial>
+                <p>&ldquo;Placeholder &mdash; second quote. Real testimonials drop in here without touching anything else.&rdquo;</p>
+                <footer><b>Client Name</b><span>Company</span></footer>
+              </blockquote>
+            </div>
+          </div>
+          <div class="logo-strip animate-in" aria-label="Clients">
+            <span>Greek Olive Fusion</span><span>NFBS</span><span>Lake Region</span><span>Trevor Waters Realty</span><span>BTW.LTD</span>
+          </div>
+          <div class="trust-cta animate-in">
+            <button class="pill" type="button" data-scroll="#contact">Start a project</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section id="about" class="s-section s-about">
+        <div class="s-inner">
+          <span class="s-eyebrow animate-in">About</span>
+          <h2 class="s-title s-title-big animate-in">One builder. Full ownership.</h2>
+          <p class="s-sub animate-in">iHelpBuild is Branden Waters &mdash; a solo studio that designs, codes, and ships everything you see here. No hand-offs, no account managers, no mystery. You work directly with the person building your product.</p>
+          <p class="s-faint animate-in">Based in Florida. Working everywhere.</p>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section id="contact" class="s-section s-contact">
+        <div class="s-inner">
+          <div class="s-head animate-in">
+            <span class="s-eyebrow">Contact</span>
+            <h2 class="s-title">Let&rsquo;s figure out what you need.</h2>
+            <p class="s-sub">No pitch decks. No sales calls dressed as discovery. A real conversation about your business.</p>
+          </div>
+          <form id="contact-form" class="c-form animate-in" novalidate>
+            <div class="c-row">
+              <label class="c-field">
+                <span>Name</span>
+                <input type="text" name="name" required autocomplete="name" />
+              </label>
+              <label class="c-field">
+                <span>Email</span>
+                <input type="email" name="email" required autocomplete="email" />
+              </label>
+            </div>
+            <label class="c-field">
+              <span>What do you need?</span>
+              <select name="service">
+                <option>Website Build</option>
+                <option>Hermes Agent Setup</option>
+                <option>Growth &amp; Marketing</option>
+                <option>Learn AI &mdash; Waitlist</option>
+                <option selected>Not sure yet</option>
+              </select>
+            </label>
+            <label class="c-field">
+              <span>One sentence about your project</span>
+              <textarea name="message" rows="2"></textarea>
+            </label>
+            <button class="pill c-submit" type="submit">Send it &rarr;</button>
+            <p class="c-note">Prefer email? <a href="mailto:hello@ihelpbuild.com">hello@ihelpbuild.com</a></p>
+          </form>
+          <div id="form-success" class="c-success" hidden>
+            <h3>Got it.</h3>
+            <p>We&rsquo;ll be in touch within one business day.</p>
+          </div>
+        </div>
+        <footer class="s-footer animate-in">
+          <span class="s-faint">&copy; 2026 iHelpBuild &mdash; built by hand, no templates.</span>
+        </footer>
+      </section>
+    </main>
+
+    <!-- ============ HERMES PAGE ============ -->
+    <section id="hermes-page" class="hermes" hidden aria-hidden="true">
+      <div class="hermes-bg"></div>
+      <div class="hermes-scroll">
+        <div class="hermes-inner">
+          <div class="detail-head">
+            <div class="d-meta"><span>iHelpBuild</span><span class="d-sep">/</span><span>AI Agent</span></div>
+            <h1 class="h-title">Meet Hermes</h1>
+            <p class="s-sub h-sub">An AI agent that runs the admin layer of your business &mdash; so the humans handle the work.</p>
+          </div>
+          <div class="h-caps">
+            <div class="h-cap tilt" data-tilt><div class="tilt-inner"><h3>Intake</h3><p>Every lead answered instantly &mdash; web, text, or email. Qualified and logged before you even see it.</p></div></div>
+            <div class="h-cap tilt" data-tilt><div class="tilt-inner"><h3>Follow-up</h3><p>No lead goes cold. Hermes nudges, reminds, and re-engages on a schedule that feels human.</p></div></div>
+            <div class="h-cap tilt" data-tilt><div class="tilt-inner"><h3>Scheduling</h3><p>Back-and-forth dies here. Hermes books appointments straight into your calendar.</p></div></div>
+            <div class="h-cap tilt" data-tilt><div class="tilt-inner"><h3>Reporting</h3><p>A plain-English summary of what happened in your business, delivered when you want it.</p></div></div>
+          </div>
+          <div class="h-setup">
+            <span class="s-eyebrow">Setup</span>
+            <ol class="h-steps">
+              <li><b>Map</b> &mdash; we learn your workflow and where the hours leak.</li>
+              <li><b>Wire</b> &mdash; Hermes connects to your phone, email, calendar, and CRM.</li>
+              <li><b>Run</b> &mdash; live in days. Tuned weekly until it feels invisible.</li>
+            </ol>
+          </div>
+          <div class="h-cta">
+            <button class="pill" type="button" data-scroll="#contact" data-service="Hermes Agent Setup" data-close-hermes>Set up Hermes for my business</button>
+          </div>
+        </div>
+      </div>
+      <button id="hermes-back" class="pill ghost back" type="button">&larr; Back</button>
     </section>
 
     <div id="loader" class="loader">

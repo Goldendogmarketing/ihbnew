@@ -225,6 +225,13 @@ export class LookControls {
 
   private onWheel = (e: WheelEvent): void => {
     if (!this.enabled) return
+    // Once the page is scrollable, the wheel belongs to the document:
+    // scrolling down at the top dives into the sales sections, and any
+    // wheel input while scrolled leaves native scrolling alone.
+    if (document.body.classList.contains('scrollable')) {
+      if (window.scrollY > 2) return
+      if (e.deltaY > 0) return
+    }
     e.preventDefault()
     const norm = e.deltaMode === 1 ? 18 : 1
     const d = (e.deltaY + e.deltaX) * norm
